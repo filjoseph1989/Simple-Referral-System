@@ -13965,6 +13965,26 @@ video {
   transition-duration: 1000ms;
 }
 
+.login_form {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.login_form h1 {
+  align-self: center;
+  justify-self: center;
+}
+
+.login_form .login_form_wrapper {
+  align-self: center;
+  justify-self: center;
+}
+
+.form {
+  display: grid;
+  width: 330px;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
