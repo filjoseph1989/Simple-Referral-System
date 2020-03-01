@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use App\Classes\UserCredits;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
+use App\Models\Referral;
+use App\Models\Credit;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -65,10 +68,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        (new UserCredits($data))->credit();
+
+        $user = User::create([
             'name'     => "{$data['first_name']} {$data['last_name']}",
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        Credit::create([
+            'user_id' => $user->id,
+            'points'  => 2
+        ]);
+
+        return $user;
     }
 }

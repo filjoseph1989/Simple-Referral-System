@@ -15,8 +15,19 @@
                         </div>
                     @endif
 
+                    @if (!is_null(session('invitation_code')))
+                        <div class="border border-green-500 mb-2 p-2 rounded text-sm">
+                            <p class="text-green-600">Thank you for accepting the invitation</p>
+                            <p class="text-green-600">You may now proceed to signup to get 2 credits</p>
+                        </div>
+                    @endif
+
                     <form action="{{ route('post.signup') }}" method="post" class="form--grid">
                         @csrf
+
+                        @if (!is_null(session('invitation_code')))
+                            <input type="hidden" name="invitation_code" value="{{ session('invitation_code') }}">
+                        @endif
 
                         <label for="first-name">First Name</label>
                         <input type="text" class="border mb-3 p-1 pl-2" name="first_name" placeholder="Enter your first name" required
