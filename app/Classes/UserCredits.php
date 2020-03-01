@@ -23,20 +23,6 @@ class UserCredits
     }
 
     /**
-     * Check if has invitation code
-     *
-     * @return boolean
-     */
-    public function hasInvitationCode()
-    {
-        if (isset($this->data['invitation_code']) && !empty($this->data['invitation_code'])) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Give a credit to user
      *
      * @return void
@@ -46,6 +32,7 @@ class UserCredits
         if (self::hasInvitationCode()) {
             if (!is_null($user = self::whoInvited())) {
                 $credit = Credit::where('user_id', $user->id);
+                
                 if ($credit->count() > 0) {
                     $credit->increment('points', 2);
                 } else {
@@ -59,11 +46,25 @@ class UserCredits
     }
 
     /**
+     * Check if has invitation code
+     *
+     * @return boolean
+     */
+    private function hasInvitationCode()
+    {
+        if (isset($this->data['invitation_code']) && !empty($this->data['invitation_code'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Check who invited
      *
-     * @return void
+     * @return null|object
      */
-    public function whoInvited()
+    private function whoInvited()
     {
         $referral = Referral::with('user')
             ->where('code', $this->data['invitation_code'])

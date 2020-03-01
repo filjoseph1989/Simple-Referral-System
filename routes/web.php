@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('get.home');
+Route::get('/signup', 'Auth\RegisterController@showRegistrationForm')->name('get.signup.form');
+Route::get('/invite/{code}', 'ReferralController@index')->name('get.invite');
+
 Route::post('/login', 'Auth\LoginController@login')->name('post.login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('post.logout');
-Route::get('/signup', 'Auth\RegisterController@showRegistrationForm')->name('get.signup.form');
 Route::post('/signup', 'Auth\RegisterController@register')->name('post.signup');
-Route::get('/invite/{code}', 'ReferralController@index')->name('get.invite');
+Route::post('/invite/send', 'ReferralController@send')->name('post.invite.send');
