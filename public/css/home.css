@@ -1,0 +1,8 @@
+.dashboard {
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+.dashboard .sidebar {
+  grid-template-rows: 150px 1fr;
+}

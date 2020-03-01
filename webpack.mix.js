@@ -12,12 +12,17 @@ const mix = require('laravel-mix');
  */
 mix.js('resources/js/app.js', 'public/js');
 
-mix.postCss('resources/sass/app.css', 'public/css', [
+let option = [
     require('postcss-import'),
     require('autoprefixer'),
     require('postcss-nested'),
     require('tailwindcss'),
-]);
+];
+
+mix.postCss('resources/sass/app.css', 'public/css', option);
+mix.postCss('resources/sass/login.css', 'public/css', option);
+mix.postCss('resources/sass/registration.css', 'public/css', option);
+mix.postCss('resources/sass/home.css', 'public/css', option); 
 
 if (mix.inProduction()) {
     mix.sourceMaps().version();

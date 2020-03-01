@@ -1,0 +1,14 @@
+.registration_form {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.registration_form h1 {
+  align-self: center;
+  justify-self: center;
+}
+
+.registration_form .registration_form_wrapper {
+  align-self: center;
+  justify-self: center;
+}

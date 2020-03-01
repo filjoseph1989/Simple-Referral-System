@@ -31544,11 +31544,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-Vue.component('my-component-name', {});
-var vm = new Vue({
-  el: '#app'
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -31581,15 +31576,51 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/home.css":
+/*!*********************************!*\
+  !*** ./resources/sass/home.css ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/login.css":
+/*!**********************************!*\
+  !*** ./resources/sass/login.css ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/registration.css":
+/*!*****************************************!*\
+  !*** ./resources/sass/registration.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.css ***!
-  \************************************************************/
+/*!***************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.css ./resources/sass/login.css ./resources/sass/registration.css ./resources/sass/home.css ***!
+  \***************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /mnt/c/projects/www/referral/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/c/projects/www/referral/resources/sass/app.css */"./resources/sass/app.css");
+__webpack_require__(/*! /mnt/c/projects/www/referral/resources/sass/app.css */"./resources/sass/app.css");
+__webpack_require__(/*! /mnt/c/projects/www/referral/resources/sass/login.css */"./resources/sass/login.css");
+__webpack_require__(/*! /mnt/c/projects/www/referral/resources/sass/registration.css */"./resources/sass/registration.css");
+module.exports = __webpack_require__(/*! /mnt/c/projects/www/referral/resources/sass/home.css */"./resources/sass/home.css");
 
 
 /***/ })

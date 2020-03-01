@@ -13965,24 +13965,16 @@ video {
   transition-duration: 1000ms;
 }
 
-.login_form {
+.form--grid {
   display: grid;
-  grid-template-rows: 1fr;
 }
 
-.login_form h1 {
-  align-self: center;
-  justify-self: center;
-}
-
-.login_form .login_form_wrapper {
-  align-self: center;
-  justify-self: center;
-}
-
-.form {
-  display: grid;
+.form--login-width {
   width: 330px;
+}
+
+.form--registration-width {
+  width: 500px;
 }
 
 @media (min-width: 640px) {

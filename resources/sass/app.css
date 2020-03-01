@@ -2,22 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.login_form {
+.form--grid {
     @apply grid;
-    grid-template-rows: 1fr;
-
-    h1 {
-        align-self: center;
-        justify-self: center;
-    }
-
-    .login_form_wrapper {
-        align-self: center;
-        justify-self: center;
-    }
 }
 
-.form {
-    @apply grid;
+.form--login-width {
     width: 330px;
+}
+
+.form--registration-width {
+    width: 500px;
 }

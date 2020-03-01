@@ -1,0 +1,14 @@
+.login_form {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.login_form h1 {
+  align-self: center;
+  justify-self: center;
+}
+
+.login_form .login_form_wrapper {
+  align-self: center;
+  justify-self: center;
+}
