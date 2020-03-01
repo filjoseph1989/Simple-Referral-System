@@ -31,6 +31,11 @@ class ReferralController extends Controller
      */
     public function send(Request $request)
     {
+        $request->validate([
+            'email' => 'email|required|max:255',
+            'name'  => 'required',
+        ]);
+
         $data = $request->all();
 
         if (self::hasUser($data)) {
