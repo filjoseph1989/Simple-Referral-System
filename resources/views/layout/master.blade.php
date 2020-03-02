@@ -13,8 +13,23 @@
     </head>
 
     <body class="{{ $bodyClass ?? 'bg-gray-600' }}">
-        @yield('content')
+        <div class="main grid" id="app">
+            <div class="bg-teal-600 grid grid-cols-2 h-12 navigation text-white">
+                <div class=""></div>
+                <div class="flex items-center justify-end pr-10">
+                    <nav class="">
+                        @if (Request::route()->getName() == 'get.login.form')
+                            <a href="{{ route('get.main') }}">Home</a>
+                        @else
+                            <a href="{{ route('get.login.form') }}">Login</a>
+                        @endif
+                    </nav>
+                </div>
+            </div>
 
-        <script src="{{ mix('js/app.js') }}?v=0.3"></script>
+            @yield('content')
+        </div>
+
+        <script src="{{ mix('js/app.js') }}?v=0.4"></script>
     </body>
 </html>

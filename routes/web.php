@@ -22,8 +22,10 @@ Route::get('/', 'HomeController@index')->name('get.main');
 |
 */
 Route::get('/home', 'DashboardController@index')->name('get.home')->middleware('auth');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('get.login.form');
 Route::get('/signup', 'Auth\RegisterController@showRegistrationForm')->name('get.signup.form');
 Route::get('/invite/{code}', 'ReferralController@index')->name('get.invite');
+Route::get('/gift/card', 'GiftCardController@index')->name('get.gift.card');
 
 /*
 |--------------------------------------------------------------------------
