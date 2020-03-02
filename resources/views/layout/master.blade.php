@@ -18,10 +18,16 @@
                 <div class=""></div>
                 <div class="flex items-center justify-end pr-10">
                     <nav class="">
-                        @if (Request::route()->getName() == 'get.login.form')
-                            <a href="{{ route('get.main') }}">Home</a>
-                        @else
-                            <a href="{{ route('get.login.form') }}">Login</a>
+                        @if (Request::route()->getName() != 'get.main')
+                            <a class="mr-2" href="{{ route('get.main') }}">Home</a>
+                        @endif
+
+                        @if (Request::route()->getName() != 'get.login.form')
+                            <a class="mr-2" href="{{ route('get.login.form') }}">Login</a>
+                        @endif
+
+                        @if (Request::route()->getName() != 'get.signup.form')
+                            <a href="{{ route('get.signup.form') }}">Sign up</a>
                         @endif
                     </nav>
                 </div>
