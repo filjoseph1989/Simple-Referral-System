@@ -16,20 +16,20 @@
                 @csrf
 
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Enter gift card name" class="border p-2">
+                <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Enter gift card name" class="border p-2">
 
                 <label class="mt-3" for="price">Price</label>
-                <input type="text" name="price" id="price" placeholder="Enter gift card price" class="border p-2">
+                <input type="text" name="price" id="price" value="{{ old('price') }}" placeholder="Enter gift card price" class="border p-2">
 
                 <label class="mt-3" for="quantity">Quantity</label>
-                <input type="number" name="quantity" id="quantity" placeholder="Enter gift card quantity" class="border p-2">
+                <input type="number" name="quantity" id="quantity" value="{{ old('quantity') }}" placeholder="Enter gift card quantity" class="border p-2">
 
                 <label class="mt-3" for="points">Required Credit/Points</label>
-                <input type="text" name="points" id="points" placeholder="Enter gift card credits/points" class="border p-2">
+                <input type="text" name="points" id="points" value="{{ old('points') }}" placeholder="Enter gift card credits/points" class="border p-2">
 
                 <label class="mt-3" for="expiration">Valid until</label>
-                <input type="datetime" name="expiration" id="expiration" placeholder="Enter expiration date" class="border p-2">
-                
+                <input type="datetime" name="expiration" id="expiration" value="{{ old('expiration') }}" placeholder="Enter expiration date" class="border p-2">
+
                 <button type="submit" class="bg-teal-600 border mt-2 p-2 text-white" style=" width: 110px; ">
                     <span>Save</span>
                 </button>
