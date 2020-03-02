@@ -29,7 +29,7 @@ Route::get('/gift/card', 'GiftCardController@index')->name('get.gift.card');
 
 /*
 |--------------------------------------------------------------------------
-| Get route
+| Post route
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for post methods
@@ -39,3 +39,4 @@ Route::post('/login', 'Auth\LoginController@login')->name('post.login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('post.logout');
 Route::post('/signup', 'Auth\RegisterController@register')->name('post.signup');
 Route::post('/invite/send', 'ReferralController@send')->name('post.invite.send')->middleware('auth');
+Route::post('/gift/card/store', 'GiftCardController@store')->name('post.gift.card');
