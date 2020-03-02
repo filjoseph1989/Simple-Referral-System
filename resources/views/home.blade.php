@@ -1,14 +1,19 @@
 @section('content')
     <div class="dashboard grid h-10 w-full">
         <div class="bg-teal-900 grid sidebar">
-            <div class="bg-blue-400 flex items-center justify-center profile">
-                <h1>Fil</h1>
+            <div class="flex items-end profile" style=" background-image: url(https://i.imgur.com/B0D4iRkl.jpg);">
+                <div class="bg-black opacity-50 pl-4 w-full py-1">
+                    <h1 class="text-white">{{ ucwords(Auth::user()->name ?? '') }}</h1>
+                </div>
             </div>
-            <div class="pt-4">
-                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                    class="bg-white border p-3 rounded">
-                    Logout
-                </a>
+
+            <div>
+                <ul>
+                    <li class="bg-teal-800 flex pl-10 py-3 text-white">
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="">Logout</a>
+                    </li>
+                </ul>
+
                 <form id="logout-form" action="{{ route('post.logout') }}" method="post"
                     class="hidden">
                     @csrf

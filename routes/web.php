@@ -11,15 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('get.main');
 
-Route::get('/home', 'HomeController@index')->name('get.home');
+/*
+|--------------------------------------------------------------------------
+| Get route
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for get methods
+|
+*/
+Route::get('/home', 'DashboardController@index')->name('get.home')->middleware('auth');
 Route::get('/signup', 'Auth\RegisterController@showRegistrationForm')->name('get.signup.form');
 Route::get('/invite/{code}', 'ReferralController@index')->name('get.invite');
 
+/*
+|--------------------------------------------------------------------------
+| Get route
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for post methods
+|
+*/
 Route::post('/login', 'Auth\LoginController@login')->name('post.login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('post.logout');
 Route::post('/signup', 'Auth\RegisterController@register')->name('post.signup');
-Route::post('/invite/send', 'ReferralController@send')->name('post.invite.send');
+Route::post('/invite/send', 'ReferralController@send')->name('post.invite.send')->middleware('auth');

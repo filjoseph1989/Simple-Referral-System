@@ -12,7 +12,7 @@
         @yield('css')
     </head>
 
-    <body class="bg-teal-700">
+    <body class="{{ $bodyClass ?? 'bg-gray-600' }}">
         @yield('content')
 
         <script src="{{ mix('js/app.js') }}?v=0.3"></script>

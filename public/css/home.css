@@ -6,3 +6,8 @@
 .dashboard .sidebar {
   grid-template-rows: 150px 1fr;
 }
+
+.dashboard .sidebar .profile {
+  background-position-x: center;
+  background-position-y: center;
+}

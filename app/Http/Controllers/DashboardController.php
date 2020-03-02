@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Classes\Invitation;
+use App\Models\Referral;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display dashboard
@@ -14,10 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
-            return redirect()->route('get.home');
-        }
+        $code = (new Invitation(new Referral()))->code();
 
-        return view('welcome');
+        return view('home')->with(compact('code'));
     }
 }
