@@ -20,6 +20,7 @@ class CreateGiftCardsTable extends Migration
             $table->integer('quantity');
             $table->integer('points');
             $table->dateTime('expiration');
+            $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();
         });
     }
