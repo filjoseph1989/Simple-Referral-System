@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DB;
 use App\User;
 use App\Classes\UserCredits;
 use App\Http\Controllers\Controller;
@@ -68,7 +69,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        (new UserCredits($data))->credit();
+        $credit = (new UserCredits($data))->credit();
 
         $user = User::create([
             'name'     => "{$data['first_name']} {$data['last_name']}",
@@ -76,11 +77,43 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        Credit::create([
-            'user_id' => $user->id,
-            'points'  => 2
-        ]);
+        self::creditUser($user, $credit);
+        self::role($user);
 
         return $user;
+    }
+
+    /**
+     * Add user credit
+     *
+     * @param  App\User $user
+     * @return void
+     */
+    private function creditUser(&$user, $credit)
+    {
+        if ($credit) {
+            Credit::create([
+                'user_id' => $user->id,
+                'points'  => 2
+            ]);
+        }
+    }
+
+    /**
+     * Assign role
+     *
+     * @param  App\User $user
+     * @return void
+     */
+    private function role(&$user)
+    {
+        DB::table('role_users')->insert([
+            [
+                'user_id'    => $user->id,
+                'role_id'    => 2,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]
+        ]);
     }
 }
