@@ -23,6 +23,9 @@
 
                 <div>
                     <ul>
+                        <li class="bg-teal-800 border-b flex pl-10 py-3 text-white">
+                            <a href="#" class="">Create User Role</a>
+                        </li>
                         <li class="bg-teal-800 flex pl-10 py-3 text-white">
                             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="">Logout</a>
                         </li>

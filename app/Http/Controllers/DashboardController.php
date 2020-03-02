@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Classes\Invitation;
+use App\Models\Credit;
 use App\Models\Referral;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,8 @@ class DashboardController extends Controller
     {
         $code = (new Invitation(new Referral()))->code();
 
-        return view('home')->with(compact('code'));
+        $credit = Credit::where('user_id', Auth::id())->first();
+
+        return view('home')->with(compact('code', 'credit'));
     }
 }
