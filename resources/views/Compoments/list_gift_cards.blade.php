@@ -19,7 +19,9 @@
                         <tr>
                             <th class="text-left">Name</th>
                             <th class="text-left">Price</th>
-                            <th class="text-left">Quantity</th>
+                            <th class="text-left">Remaining</th>
+                            <th class="text-left">Sold</th>
+                            <th class="text-left">Earned</th>
                             <th class="text-left">Required Points</th>
                             <th class="text-left">Expire At</th>
                             <th class="text-left">Status</th>
@@ -28,13 +30,25 @@
 
                     <tbody>
                         @foreach ($gift as $key => $value)
+                            @php
+                                $price      = $value->price ?? '0.00';
+                                $price      = number_format($price, 2);
+                                $expiration = $value->expiration ?? '';
+                                $expiration = date('M d, Y', strtotime($expiration));
+                                $status     = $value->status == 'true' ? 'Active' : 'Inactive';
+                            @endphp
+
                             <tr>
                                 <td class="border p-1">{{ $value->name ?? '' }}</td>
-                                <td class="border p-1">{{ $value->price ?? '' }}</td>
+                                <td class="border p-1">{{ "Php {$price}" }}</td>
                                 <td class="border p-1">{{ $value->quantity ?? '' }}</td>
+                                <td class="border p-1">0</td>
+                                <td class="border p-1">Php 0.00</td>
                                 <td class="border p-1">{{ $value->points ?? '' }}</td>
-                                <td class="border p-1">{{ $value->expiration ?? '' }}</td>
-                                <td class="border p-1">{{ $value->status ?? '' }}</td>
+                                <td class="border p-1">{{ $expiration }}</td>
+                                <td class="border p-1">
+                                    <span class="bg-green-500 border pl-1 pr-1 text-white text-sm">{{ strtoupper($status) }}</span>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
