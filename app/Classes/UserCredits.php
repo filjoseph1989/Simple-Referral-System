@@ -23,16 +23,16 @@ class UserCredits
     }
 
     /**
-     * Give a credit to user
+     * Give a credit to user who invited
      *
-     * @return void
+     * @return boolean
      */
     public function credit()
     {
         if (self::hasInvitationCode()) {
             if (!is_null($user = self::whoInvited())) {
                 $credit = Credit::where('user_id', $user->id);
-                
+
                 if ($credit->count() > 0) {
                     $credit->increment('points', 2);
                 } else {
@@ -41,8 +41,12 @@ class UserCredits
                         'points'  => 2
                     ]);
                 }
+
+                return true;
             }
         }
+
+        return false;
     }
 
     /**
