@@ -26,9 +26,14 @@ class GiftCardController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $request->validate();
-        
-        $data = $request->all();
+        $data = $request->validate([
+            'name'       => 'required',
+            'price'      => 'required',
+            'quantity'   => 'required',
+            'points'     => 'required',
+            'expiration' => 'required',
+        ]);
+
         $gift = GiftCard::create($data);
 
         if ($gift->wasRecentlyCreated) {
