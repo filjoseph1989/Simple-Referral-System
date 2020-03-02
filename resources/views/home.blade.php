@@ -17,8 +17,6 @@
 
     @include('Compoments.welcome')
 
-    @include('Compoments.create_role')
-
     @include('Compoments.invite')
 
     <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
