@@ -55,6 +55,8 @@ class CheckoutController extends Controller
             return redirect()->route('get.login.form');
         }
 
+        session()->forget('checkout');
+
         $request->validate([
             'quantity'  => 'required'
         ]);
