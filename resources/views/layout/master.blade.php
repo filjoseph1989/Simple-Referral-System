@@ -22,12 +22,16 @@
                             <a class="mr-2" href="{{ route('get.main') }}">Home</a>
                         @endif
 
-                        @if (Request::route()->getName() != 'get.login.form')
-                            <a class="mr-2" href="{{ route('get.login.form') }}">Login</a>
-                        @endif
+                        @if (!Auth::check())
+                            @if (Request::route()->getName() != 'get.login.form')
+                                <a class="mr-2" href="{{ route('get.login.form') }}">Login</a>
+                            @endif
 
-                        @if (Request::route()->getName() != 'get.signup.form')
-                            <a href="{{ route('get.signup.form') }}">Sign up</a>
+                            @if (Request::route()->getName() != 'get.signup.form')
+                                <a href="{{ route('get.signup.form') }}">Sign up</a>
+                            @endif
+                        @else
+                            <a href="{{ route('get.home') }}">Dashboard</a>
                         @endif
                     </nav>
                 </div>
@@ -36,6 +40,7 @@
             @yield('content')
         </div>
 
-        <script src="{{ mix('js/app.js') }}?v=0.4"></script>
+        <script src="{{ mix('js/app.js') }}?v=0.5"></script>
+        @yield('js')
     </body>
 </html>
