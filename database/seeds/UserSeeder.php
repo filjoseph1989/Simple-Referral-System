@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
             [
                 'name'       => "Admin",
                 'email'      => "admin@email.com",
-                'password'   => '$2y$10$ZAc4myMLUXfWj3swSzTYi.By4mh9tuVQnd1iLzcWChzt2JYoliW3S', // password
+                'password'   => password_hash('password', PASSWORD_BCRYPT),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]
