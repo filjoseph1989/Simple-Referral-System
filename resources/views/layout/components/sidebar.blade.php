@@ -8,15 +8,21 @@
     <div>
         <ul>
             <li class="bg-teal-800 border-b flex pl-10 py-3 text-white">
-                <a href="{{ route('get.main') }}" class="">Dashboard</a>
+                <a href="{{ route('get.home') }}" class="">Dashboard</a>
             </li>
-            
+            <li class="bg-teal-800 border-b flex pl-10 py-3 text-white">
+                <a href="{{ route('get.main') }}" class="">Homepage</a>
+            </li>
+            <li class="bg-teal-800 border-b flex pl-10 py-3 text-white">
+                <a href="{{ route('get.gift.card.user') }}" class="">Gift Cards</a>
+            </li>
+
             @if (isset(session('role')->role->name) && session('role')->role->name == 'admin')
                 <li class="bg-teal-800 border-b flex pl-10 py-3 text-white">
-                    <a href="#" class="">Create User Role</a>
+                    <a href="#" class="">User Role</a>
                 </li>
                 <li class="bg-teal-800 border-b flex pl-10 py-3 text-white">
-                    <a href="{{ route('get.gift.card') }}" class="">Create Gift Cards</a>
+                    <a href="{{ route('get.gift.card') }}" class="">Manage Gift Cards</a>
                 </li>
             @endif
 
