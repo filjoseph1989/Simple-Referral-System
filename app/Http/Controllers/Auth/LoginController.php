@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\RedirectsUsers;
 
 class LoginController extends Controller
 {
+    use RedirectsUsers;
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -36,5 +40,26 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        $path = $this->redirectPath();
+
+        if (session('checkout')) {
+            $path = session('checkout');
+        }
+
+        return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($path);
     }
 }
