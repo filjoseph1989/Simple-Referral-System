@@ -15,3 +15,4 @@ yarn-error.log
 /settings_sycn_gist_id.text
 /.vscode/launch.json
 /.vscode/settings.json
+/.vscode/c_cpp_properties.json
