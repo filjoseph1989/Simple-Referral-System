@@ -20,23 +20,24 @@ This is an implementation of a simple referral system using Laravel PHP Framewor
 
 - [PostCSS](https://postcss.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Vuejs](https://vuejs.org/)
 
 ## Installation
 
 To get up and running
 
 - git clone
-- Composer install
+- composer install
+- set .env database
+- php artisan migrate --seed
 - npm install
-- npm run watch | dev |prod, 
+- npm run watch | dev | prod, 
     - watch -- if your editing code 
     - dev -- if you have some update 
     - prod -- if to prepare css and js file for production
 
 ## Developer
 
-This system was create by Fil Joseph Elman
+This system was created by Fil Joseph Elman
 
 - **[Fil](https://stackoverflow.com/users/3721034/fil?tab=profile)**
 
