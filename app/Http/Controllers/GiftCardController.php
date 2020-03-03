@@ -14,7 +14,7 @@ class GiftCardController extends Controller
      */
     public function index()
     {
-        $gift = GiftCard::paginate(10);
+        $gift = GiftCard::paginate(10); # Task 10
 
         return view('giftcard.index')->with(compact('gift'));
     }
@@ -27,11 +27,12 @@ class GiftCardController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'       => 'required',
-            'price'      => 'required',
-            'quantity'   => 'required',
-            'points'     => 'required',
-            'expiration' => 'required',
+            'name'        => 'required',
+            'description' => 'required',
+            'price'       => 'required',
+            'quantity'    => 'required',
+            'points'      => 'required',
+            'expiration'  => 'required',
         ]);
 
         $gift = GiftCard::create($data);
