@@ -11,6 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 mix.js('resources/js/app.js', 'public/js');
+mix.js('resources/js/checkout.js', 'public/js');
 
 let option = [
     require('postcss-import'),
@@ -22,7 +23,7 @@ let option = [
 mix.postCss('resources/sass/app.css', 'public/css', option);
 mix.postCss('resources/sass/login.css', 'public/css', option);
 mix.postCss('resources/sass/registration.css', 'public/css', option);
-mix.postCss('resources/sass/home.css', 'public/css', option); 
+mix.postCss('resources/sass/home.css', 'public/css', option);
 
 if (mix.inProduction()) {
     mix.sourceMaps().version();
