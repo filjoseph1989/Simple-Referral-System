@@ -18,6 +18,9 @@
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Enter gift card name" class="border p-2">
 
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" value="{{ old('description') }}" placeholder="Enter gift card description" class="border p-2">
+
                 <label class="mt-3" for="price">Price</label>
                 <input type="text" name="price" id="price" value="{{ old('price') }}" placeholder="Enter gift card price" class="border p-2">
 
